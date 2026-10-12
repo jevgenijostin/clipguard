@@ -58,8 +58,7 @@ npm test
 
 `extension/engine/monitor.js` contains the time-windowed comparison state machine.
 `background.js` shares its baseline using extension session storage; `content.js`
-collects events and shows warnings. The existing address validators remain unused
-utilities; they do not control detection.
+collects events and shows warnings.
 
 Manual smoke test after loading the extension: copy text on a normal webpage, paste
 it unchanged (no warning), then copy different text from a desktop editor and paste

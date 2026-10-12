@@ -1,8 +1,7 @@
 {
   "name": "clipguard",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A free Manifest V3 browser extension that warns when pasted text differs from the most recent copy or cut.",
   "scripts": {
     "test": "vitest run"
   },
@@ -10,11 +9,7 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "@noble/hashes": "2.4.0"
-  },
   "devDependencies": {
-    "esbuild": "0.28.2",
     "jsdom": "30.1.2",
     "vitest": "5.0.3"
   }
