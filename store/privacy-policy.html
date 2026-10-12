@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipGuard Privacy Policy</title>
+<style>
+body{max-width:760px;margin:48px auto;padding:0 24px;background:#faf7f2;color:#32251c;font:17px/1.7 system-ui,sans-serif}h1,h2{line-height:1.25;color:#752300}h2{margin-top:32px;font-size:23px}a{color:#752300}li{margin:12px 0}footer{border-top:1px solid #dfd1bf;margin-top:36px;padding-top:20px;font-size:14px}
+</style>
+<main>
+<h1>ClipGuard Privacy Policy</h1>
+<p>Effective October 12, 2026</p>
+<p>ClipGuard is a free, fully client-side browser extension. It collects no data for the developer or any third party, makes no network calls, and has no telemetry, analytics, accounts, or paid features. Clipboard contents are never logged or sent anywhere.</p>
+<h2>Local clipboard comparison</h2>
+<p>On supported webpages, ClipGuard observes copy, cut, and paste events and compares plain text. The most recently observed copied text and its timestamp are temporarily stored in the browser's extension session storage so comparisons can work across tabs and frames and survive background suspension. This local processing can include sensitive text you copy; nothing is transmitted.</p>
+<p>A baseline is used only within two minutes. An alarm removes expired text, although browser scheduling can delay physical cleanup. Session storage clears when the browser exits. Pasted text is processed for comparison and is not retained as a new baseline.</p>
+<p>A mismatch displays a dismissible warning in the webpage. The warning does not reveal clipboard contents, block the paste, or change the pasted field. ClipGuard does not continuously read the system clipboard and cannot observe copies made outside supported webpages.</p>
+<h2>Why these permissions are needed</h2>
+<ul>
+<li><strong>storage:</strong> keeps the latest observed copied text and timestamp locally in session storage for comparisons across tabs and frames. It does not sync data to an account or cloud service.</li>
+<li><strong>alarms:</strong> schedules removal of the temporary copy baseline after its two-minute lifetime.</li>
+<li><strong>HTTP and HTTPS website access:</strong> content scripts run on <code>http://*/*</code> and <code>https://*/*</code>, including eligible frames, to observe copy/cut/paste events and display the warning where a paste occurs. Broad website access is necessary because a copy and paste may occur on different sites. It is not used to collect browsing history or send webpage content anywhere.</li>
+</ul>
+<h2>Contact</h2>
+<p>Report issues or questions at <a href="https://github.com/jevgenijostin/clipguard/issues">https://github.com/jevgenijostin/clipguard/issues</a>.</p>
+</main>
+<footer>This policy describes the extension. This static page is hosted by GitHub Pages; visiting it or following a link makes ordinary website requests to that provider. The extension does not load this page automatically.</footer>
+</html>

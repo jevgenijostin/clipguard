@@ -44,8 +44,16 @@ clipboard after our listener may prevent accurate observation. Paste is checked
 from the event's clipboard text, not the final field value after page processing.
 The warning appears at the top right of the receiving page/frame; page overlays or
 hostile scripts can obscure/remove it. This is a detector, not a malware remover.
-Store publishing, automated real-browser coverage, and Firefox validation are not
-implemented.
+Automated tests simulate integration; full real-browser detection coverage is not implemented.
+
+## Store submission
+
+Ready-to-upload assets, descriptions and owner instructions are in [store/listing.md](store/listing.md).
+Read the [privacy policy](https://jevgenijostin.github.io/clipguard/store/privacy-policy.html).
+Run `npm run package` to recreate `dist/clipguard-extension.zip` for Chrome/Edge and
+`dist/clipguard-firefox.zip` for AMO (Firefox desktop 140+), with no detection-code build.
+Run `npm run icons` to reproduce the icons, or `npm run screenshot` to reproduce the demo
+and promotional tile after `npm ci` and `npx playwright install chromium`.
 
 ## Development and verification
 

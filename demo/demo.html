@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipGuard — clipboard mismatch demonstration</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf7f2;color:#32251c;font:18px/1.6 system-ui,sans-serif}
+header{padding:25px 64px;border-bottom:1px solid #e5dacb;display:flex;align-items:center;gap:14px;font-size:24px;font-weight:700}
+.mark{font-size:30px;color:#752300}header small{font-size:13px;font-weight:500;letter-spacing:2px;margin-left:18px;color:#786754}
+main{max-width:920px;margin:76px auto 0}h1{font-size:44px;line-height:1.15;letter-spacing:-1.5px;margin:0 0 16px}
+.intro{color:#756653;max-width:660px;margin-bottom:35px}.panel{background:#fff;border:1px solid #e5dacb;border-radius:16px;padding:30px 34px;box-shadow:0 8px 32px #32251c08}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:#786754}code{display:block;margin:10px 0 24px;font:19px/1.5 ui-monospace,monospace;color:#493a2b}
+label{display:block;margin-bottom:10px;font-weight:650}input{width:100%;padding:16px;border:2px solid #cba781;border-radius:8px;font:19px ui-monospace,monospace;color:#32251c;background:#fffcf7}
+.note{font-size:15px;color:#786754;margin:18px 0 0}footer{margin-top:27px;display:flex;gap:30px;font-size:14px;color:#786754}
+</style>
+<header><span class="mark" aria-hidden="true">▣</span> ClipGuard <small>CLIPBOARD PROTECTION</small></header>
+<main><h1>A different link. A timely warning.</h1>
+<p class="intro">ClipGuard warns when pasted text differs from a copy or cut it observed within the last two minutes.</p>
+<section class="panel" aria-label="Example webpage form">
+<div class="label">Example · copied from a webpage moments ago</div>
+<code>https://example.com/invoice/1042</code>
+<label for="link">Pasted invoice link</label>
+<input id="link" value="https://example.net/invoice/1042" spellcheck="false">
+<p class="note">The paste stays in your field. Check it before you use it.</p>
+</section>
+<footer><span>Free · No accounts</span><span>Local comparison · No network calls</span><span>Demonstration with example links</span></footer>
+</main><script>
+// Warning renderer copied verbatim from extension/content.js by generate-demo.js.
+(() => {
+  let warning;
+  function showWarning() {
+    warning?.remove();
+    warning = document.createElement('div');
+    warning.style.cssText = 'all:initial!important;position:fixed!important;top:16px!important;right:16px!important;z-index:2147483647!important;display:block!important;width:min(400px, calc(100vw - 32px))!important;';
+    const root = warning.attachShadow({ mode: 'closed' });
+    const box = document.createElement('div');
+    box.setAttribute('role', 'alert');
+    box.style.cssText = 'font:15px/1.5 system-ui,sans-serif;color:#fff;background:#752300;border:2px solid #ffb454;border-radius:8px;padding:16px;box-shadow:0 4px 20px #0006;';
+    const text = document.createElement('p');
+    text.style.margin = '0 0 12px';
+    text.textContent = 'ClipGuard: pasted text differs from your recent copy. Your clipboard may have been changed by something else running on this machine. Check the pasted text before using it.';
+    const dismiss = document.createElement('button');
+    dismiss.textContent = 'Dismiss';
+    dismiss.style.cssText = 'font:inherit;padding:4px 12px;cursor:pointer;color:#111;background:#fff;border:1px solid #aaa;border-radius:4px;';
+    dismiss.addEventListener('click', () => warning?.remove());
+    box.append(text, dismiss);
+    root.append(box);
+    (document.body || document.documentElement).append(warning);
+  }
+
+  showWarning();
+})();
+</script></html>
