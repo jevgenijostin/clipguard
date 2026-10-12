@@ -47,8 +47,11 @@
       send('copy', value);
     });
   }
-  window.addEventListener('copy', onCopy);
-  window.addEventListener('cut', onCopy);
+  // Capture phase on document, matching the paste listener below, so that
+  // common page scripts (paywalls, copy-protection) calling stopPropagation
+  // on copy/cut can't silently prevent us from observing the event at all.
+  document.addEventListener('copy', onCopy, true);
+  document.addEventListener('cut', onCopy, true);
   document.addEventListener('paste', event => {
     if (!event.isTrusted) return;
     const data = event.clipboardData;
